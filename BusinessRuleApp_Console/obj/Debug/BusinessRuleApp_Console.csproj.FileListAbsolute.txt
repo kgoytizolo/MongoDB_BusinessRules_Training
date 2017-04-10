@@ -1,0 +1,1 @@
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_Console\bin\Debug\BusinessRuleApp_Console.exe.config

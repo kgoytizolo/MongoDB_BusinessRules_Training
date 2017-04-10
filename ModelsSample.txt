@@ -1,0 +1,18 @@
+{ 
+	"ApplicationName" : "Application 1", 
+	"ApplicationDescription" : "This is an application blah blah", 
+	"ApplicationUrlSource" : "/root/GitRepository/Application1/", 
+	"CreationTime" : "09/04/2017 11:09:08 p.m.", 
+	"UserCreation" : 1 
+}
+*******************************
+{ 
+	"BrName" : "Business Rule 1", 
+	"BrDescription" : "This is a business rule blahblah", 
+	"BrTypeId" : 1, 
+	"BrCategoryId" : 1, 
+	"BrUserCreation" : 1, 
+	"BrCreationTime" : "09/04/2017 11:09:08 p.m.", 
+	"ApplicationsPerBusinessRules" : [{ "ApplicationId" : "1" }] 
+}
+

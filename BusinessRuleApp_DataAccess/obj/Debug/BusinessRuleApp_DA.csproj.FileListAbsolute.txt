@@ -1,0 +1,7 @@
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_DataAccess.dll
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_DataAccess.pdb
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_Models.dll
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_Models.pdb
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\obj\Debug\BusinessRuleApp_DA.csprojResolveAssemblyReference.cache
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\obj\Debug\BusinessRuleApp_DataAccess.dll
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\obj\Debug\BusinessRuleApp_DataAccess.pdb

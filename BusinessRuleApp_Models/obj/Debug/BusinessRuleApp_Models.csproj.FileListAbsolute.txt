@@ -1,0 +1,14 @@
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_Models\bin\Debug\BusinessRuleApp_Models.dll
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_Models\bin\Debug\BusinessRuleApp_Models.pdb
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.dll
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.pdb
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.csprojResolveAssemblyReference.cache
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_Models\bin\Debug\BusinessRuleApp_Models.dll
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_Models\bin\Debug\BusinessRuleApp_Models.pdb
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.dll
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.pdb
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\bin\Debug\BusinessRuleApp_Models.dll
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\bin\Debug\BusinessRuleApp_Models.pdb
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.csprojResolveAssemblyReference.cache
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.dll
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.pdb

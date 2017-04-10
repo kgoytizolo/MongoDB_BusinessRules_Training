@@ -1,0 +1,21 @@
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_DataAccess.dll
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_DataAccess.pdb
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_Models.dll
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_Models.pdb
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\obj\Debug\BusinessRuleApp_DataAccess.dll
+C:\KAREN_INFO\MANUALES\CERTIFICACIONES\MCSD Web - Course 20486\Practices\BusinessRuleApp_MVC4_Different_Action_Results\BusinessRuleApp_DataAccess\obj\Debug\BusinessRuleApp_DataAccess.pdb
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_DataAccess.dll
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_DataAccess.pdb
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_Models.dll
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_Models.pdb
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\obj\Debug\BusinessRuleApp_DataAccess.dll
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\obj\Debug\BusinessRuleApp_DataAccess.pdb
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\bin\Debug\MongoDB.Bson.dll
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\bin\Debug\MongoDB.Driver.Core.dll
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\bin\Debug\MongoDB.Driver.dll
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\bin\Debug\MongoDB.Bson.xml
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\bin\Debug\MongoDB.Driver.xml
+C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_DataAccess\bin\Debug\MongoDB.Driver.Core.xml
