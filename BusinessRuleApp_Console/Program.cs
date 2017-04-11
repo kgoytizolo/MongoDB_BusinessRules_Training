@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using BusinessRuleApp_Repository;
+using MongoDB.Bson.IO;
+using MongoDB.Bson.Serialization;
 
 namespace BusinessRuleApp_Console
 {
@@ -25,6 +27,28 @@ namespace BusinessRuleApp_Console
             Console.WriteLine("*******************************");
             Console.WriteLine(brDocument);          //Check all business rules Document structure <BSonDocument>
             Console.WriteLine("First ApplicationId for BR: " + brDocument["ApplicationsPerBusinessRules"][0]["ApplicationId"]);
+            Console.WriteLine("*******************************");
+
+            Console.WriteLine("SECOND EXERCISE *******************************");
+
+            //POCO representation
+            var application = appRepository.GetApplicationsForMapping();
+            var businessRule = brRepository.GetBusinessRulesForMapping();
+
+            //To convert a class into a JSon / Bson document
+            using (var app1 = new JsonWriter(Console.Out))
+            {
+                BsonSerializer.Serialize(app1, application);
+            }
+
+            Console.WriteLine("*******************************");
+
+            //To convert a class into a JSon / Bson document
+            using (var br1 = new JsonWriter(Console.Out))
+            {
+                BsonSerializer.Serialize(br1, businessRule);
+            }
+
         }
 
     }

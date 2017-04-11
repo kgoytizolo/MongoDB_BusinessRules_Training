@@ -15,4 +15,37 @@
 	"BrCreationTime" : "09/04/2017 11:09:08 p.m.", 
 	"ApplicationsPerBusinessRules" : [{ "ApplicationId" : "1" }] 
 }
+First ApplicationId for BR: 1
+*******************************
+SECOND EXERCISE *******************************
+{ 
+	"_t" : "Application", 
+	"ApplicationId" : 1, 
+	"AppName" : "Application 1", 
+	"AppDescription" : "This is an application blah blah", 
+	"AppUrlSource" : "/root/GitRepository/Application1/", 
+	"CreationTime" : "2017-04-10T23:37:05.1032769-05:00", 
+	"UserCreation" : 1 }
+*******************************	
+{ 
+	"_t" : "BusinessRule", 
+	"brId" : 1, 
+	"brName" : "Business Rule 1", 
+	"brDescription" : "This is a business rule blah blah", 
+	"brTypeId" : 1, 
+	"brCategoryId" : 1, 
+	"brUserCreation" : "1", 
+	"brCreationTime" : ISODate("2017-04-11T04:37:05.114Z"), 
+	"brDeprecated" : true, 
+	"aplications" : [
+		{ 
+			"ApplicationId" : 1, 
+			"AppName" : "Application 1", 
+			"AppDescription" : "This is an application blah blah", 
+			"AppUrlSource" : "/root/GitRepository/Application1/", 
+			"CreationTime" : "2017-04-10T23:37:05.1142775-05:00", 
+			"UserCreation" : 1 
+		}
+	], 
+	"tags" : ["Clients", "sql business rule", "Eligibility", "Integrity"] }Press Enter
 

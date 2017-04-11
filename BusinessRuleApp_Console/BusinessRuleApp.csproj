@@ -71,6 +71,10 @@
       <Project>{bbe0fa46-443e-4a96-b105-7adf154b6111}</Project>
       <Name>BusinessRuleApp_DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BusinessRuleApp_Models\BusinessRuleApp_Models.csproj">
+      <Project>{bbfafc34-abff-470e-96ee-e34c5502aa0a}</Project>
+      <Name>BusinessRuleApp_Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BusinessRuleApp_Repository\BusinessRuleApp_Repository.csproj">
       <Project>{d69fca1b-1583-4363-b648-4c1483f7e730}</Project>
       <Name>BusinessRuleApp_Repository</Name>
