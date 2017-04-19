@@ -6,13 +6,15 @@ namespace BusinessRuleApp_DataAccess
 {
     public class Connections
     {
+        public MongoClient _client;
+
         public Connections(byte cnxSetup) {
             switch (cnxSetup) {
                 case 1:
                     MainMongoDBConnection();
                     break;
                 default:
-                    MainDBConnection();
+                    MainDBSQLConnection();
                     break;
             }
         }
@@ -20,12 +22,11 @@ namespace BusinessRuleApp_DataAccess
         public async Task MainMongoDBConnection()
         {
             var connectionString = "mongodb://localhost:27017";
-            var client = new MongoClient(connectionString);
-            var db = client.GetDatabase("test");
-            var col = db.GetCollection<Application>("application");     //<BSonDocument>
+            _client = new MongoClient(connectionString);
+            var db = _client.GetDatabase("test");
         }
 
-        public int MainDBConnection() {
+        public int MainDBSQLConnection() {
             return 0;
         }
 

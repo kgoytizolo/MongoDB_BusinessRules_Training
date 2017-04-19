@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using BusinessRuleApp_Repository;
-using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization;
 
 namespace BusinessRuleApp_Console
 {
@@ -10,6 +7,7 @@ namespace BusinessRuleApp_Console
     {
         static void Main(string[] args)
         {
+            //Console.SetWindowSize(800, 600);
             MainAsync(args).Wait();
             Console.WriteLine("Press Enter");
             Console.ReadLine();
@@ -17,38 +15,34 @@ namespace BusinessRuleApp_Console
 
         static async Task MainAsync(string[] args)
         {
-            //var client = new Connections(1);
-            var appRepository = new ApplicationRepository();
-            var brRepository = new BusinessRulesRepository();
-            var appDocument = appRepository.getApplications();      //MongoDB document for application class
-            var brDocument = brRepository.getBusinessRules();       //MongoDB document for business rules class
-            //Check results of Mongo DB Documents:
-            Console.WriteLine(appDocument);         //Check all application Document structure <BSonDocument>                              
-            Console.WriteLine("*******************************");
-            Console.WriteLine(brDocument);          //Check all business rules Document structure <BSonDocument>
-            Console.WriteLine("First ApplicationId for BR: " + brDocument["ApplicationsPerBusinessRules"][0]["ApplicationId"]);
-            Console.WriteLine("*******************************");
+            ProgramOptions MyMenuOptions = new ProgramOptions();
+            ConsoleKeyInfo cki;
 
-            Console.WriteLine("SECOND EXERCISE *******************************");
-
-            //POCO representation
-            var application = appRepository.GetApplicationsForMapping();
-            var businessRule = brRepository.GetBusinessRulesForMapping();
-
-            //To convert a class into a JSon / Bson document
-            using (var app1 = new JsonWriter(Console.Out))
-            {
-                BsonSerializer.Serialize(app1, application);
+            do {
+                MyMenuOptions.DisplayMenu();
+                cki = Console.ReadKey(false);
+                switch (cki.KeyChar.ToString()) {
+                    case "1":
+                        MyMenuOptions.CheckAppDocumentStructure();
+                        break;
+                    case "2":
+                        MyMenuOptions.CheckBusinessRulesDocumentStructure();
+                        break;
+                    case "3":
+                        MyMenuOptions.GetMappedApplications();
+                        break;
+                    case "4":
+                        MyMenuOptions.GetMappedBusinessRules();
+                        break;
+                    case "5":
+                        await MyMenuOptions.InsertNewApplication();
+                        break;
+                    case "6":
+                        await MyMenuOptions.InsertNewBusinessRules();
+                        break;
+                }
             }
-
-            Console.WriteLine("*******************************");
-
-            //To convert a class into a JSon / Bson document
-            using (var br1 = new JsonWriter(Console.Out))
-            {
-                BsonSerializer.Serialize(br1, businessRule);
-            }
-
+            while (cki.Key != ConsoleKey.Escape);          
         }
 
     }

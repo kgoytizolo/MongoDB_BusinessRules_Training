@@ -1,0 +1,89 @@
+Welcome to the Business Rules System!!
+---------------------------------------
+1. Check app Document structure
+2. Check app Business rules structure (with arrays)
+3. Get Mapped Applications
+4. Get Mapped Business Rules
+5. Insert a new Application
+6. Insert a new Business Rule
+1
+1
+{ 
+	"ApplicationName" : "Application 1", 
+	"ApplicationDescription" : "This is an application blah blah", 
+	"ApplicationUrlSource" : "/root/GitRepository/Application1/", 
+	"CreationTime" : "17/04/2017 10:47:23 p.m.", 
+	"UserCreation" : 1 
+}
+*******************************
+Welcome to the Business Rules System!!
+---------------------------------------
+1. Check app Document structure
+2. Check app Business rules structure (with arrays)
+3. Get Mapped Applications
+4. Get Mapped Business Rules
+5. Insert a new Application
+6. Insert a new Business Rule
+2
+{ 
+	"BrName" : "Business Rule 1", 
+	"BrDescription" : "This is a business rule blah blah", 
+	"BrTypeId" : 1, 
+	"BrCategoryId" : 1, 
+	"BrUserCreation" : 1, 
+	"BrCreationTime" : "17/04/2017 10:51:04 p.m.", 
+	"ApplicationsPerBusinessRules" : [{ "ApplicationId" : "1" }] 
+} 
+First ApplicationId for BR: 1
+*******************************
+Welcome to the Business Rules System!!
+---------------------------------------
+1. Check app Document structure
+2. Check app Business rules structure (with arrays)
+3. Get Mapped Applications
+4. Get Mapped Business Rules
+5. Insert a new Application
+6. Insert a new Business Rule
+3
+{ 
+	"_t" : "Application", 
+	"ApplicationId" : 1, 
+	"AppName" : "Application 1", 
+	"AppDescription" : "This is an application blah blah",
+	"AppUrlSource" : "/root/GitRepository/Application1/", 
+	"CreationTime" : "2017-04-17T22:53:08.9177547-05:00", "UserCreation" : 1 
+}
+*******************************
+Welcome to the Business Rules System!!
+---------------------------------------
+1. Check app Document structure
+2. Check app Business rules structure (with arrays)
+3. Get Mapped Applications
+4. Get Mapped Business Rules
+5. Insert a new Application
+6. Insert a new Business Rule
+4
+{ 
+	"_t" : "BusinessRule", 
+	"brId" : 1, 
+	"brName" : "Business Rule 1", 
+	"brDescription" : "This is a business rule blah blah", 
+	"brTypeId" : 1, 
+	"brCategoryId" : 1, 
+	"brUserCreation" : "1", 
+	"brCreationTime" : ISODate("2017-04-18T03:55:01.209Z"), 
+	"brDeprecated" : true, 
+	"aplications" : [{ "ApplicationId" : 1, 
+	"AppName" : "Application 1", 
+	"AppDescription" : "This is an application blah blah", 
+	"AppUrlSource" : "/root/GitRepository/Application1/", 
+	"CreationTime" : "2017-04-17T22:55:01.2091774-05:00", 
+	"UserCreation" : 1 }], 
+	"tags" : ["Clients", "sql business rule", "Eligibility", "Integrity"] 
+}
+*******************************
+Welcome to the Business Rules System!!
+---------------------------------------
+
+
+
