@@ -3,12 +3,19 @@ using BusinessRuleApp_Models.Models;
 using System.Collections.Generic;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Conventions;
+using System.Threading.Tasks;
+using BusinessRuleApp_DataAccess;
+using MongoDB.Driver;
 
 namespace BusinessRuleApp_Repository
 {
     public class BusinessRulesRepository
     {
-        public BusinessRulesRepository() { }
+        private DataAccessTest _daTest;
+
+        public BusinessRulesRepository() {
+            _daTest = new DataAccessTest();
+        }
 
         //Getting Business Rules From MongoDB directly (BSonDocument)  
         public BsonDocument getBusinessRules()
@@ -31,8 +38,19 @@ namespace BusinessRuleApp_Repository
             return docBr;
         }
 
+        //Insert business rules samples (InsertMany)
+        public async Task InsertManyBusinessRules(BsonDocument brSample1, BsonDocument brSample2) {
+            await _daTest.insertManyBusinessRules(brSample1, brSample2);
+        }
+
+        //Search and list all the Business Rules
+        public async Task<IMongoCollection<BsonDocument>> GetListOfBusinessRulesFromDb() {
+            return await _daTest.getListOfBusinessRules();
+        }
+
         //Getting Business Rules using POCO Representation - From C# class to BsonDocument mapping
-        public BusinessRule GetBusinessRulesForMapping() {
+        public BusinessRule GetBusinessRulesForMapping()
+        {
 
             //Applying convention pack for a group mapping or for all the elements
             //There are several predefined mappings to use
@@ -48,7 +66,7 @@ namespace BusinessRuleApp_Repository
                 cm.MapMember(x => x.BrLastModification).SetIgnoreIfNull(true);  //Applying POCO mapping for Application class
                 cm.MapMember(x => x.BrUserModification).SetIgnoreIfNull(true);  //Applying POCO mapping for Application class
             }
-            ); 
+            );
 
             BusinessRule br = new BusinessRule
             {

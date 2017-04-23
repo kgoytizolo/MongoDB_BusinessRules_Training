@@ -2,12 +2,19 @@
 using MongoDB.Bson;
 using BusinessRuleApp_Models.Models;
 using MongoDB.Bson.Serialization;
+using System.Threading.Tasks;
+using BusinessRuleApp_DataAccess;
+using MongoDB.Driver;
 
 namespace BusinessRuleApp_Repository
 {
     public class ApplicationRepository : IApplicationRepository
     {
-        public ApplicationRepository() { }
+        private DataAccessTest _daTest;
+
+        public ApplicationRepository() {
+            _daTest = new DataAccessTest();
+        }
 
         //Getting Applications From MongoDB directly (BSonDocument) 
         public BsonDocument getApplications()
@@ -47,6 +54,18 @@ namespace BusinessRuleApp_Repository
             };
 
             return app;
+        }
+
+        //Insert aplication sample (InsertOne)
+        public async Task InsertOneApplication(BsonDocument appSample1)
+        {
+            await _daTest.insertApplication(getApplications());
+        }
+
+        //Search and list all the Business Rules
+        public async Task<IMongoCollection<BsonDocument>> GetListOfApplicationsFromDb()
+        {
+            return await _daTest.getListOfApplications();
         }
 
     }

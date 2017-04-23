@@ -26,3 +26,5 @@ C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Re
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Repository\obj\Debug\BusinessRuleApp_Repository.csprojResolveAssemblyReference.cache
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Repository\obj\Debug\BusinessRuleApp_Repository.dll
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Repository\obj\Debug\BusinessRuleApp_Repository.pdb
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Repository\bin\Debug\BusinessRuleApp_DataAccess.dll
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Repository\bin\Debug\BusinessRuleApp_DataAccess.pdb

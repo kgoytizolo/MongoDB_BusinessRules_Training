@@ -40,6 +40,12 @@ namespace BusinessRuleApp_Console
                     case "6":
                         await MyMenuOptions.InsertNewBusinessRules();
                         break;
+                    case "7":
+                        await MyMenuOptions.GetListOfApplications();
+                        break;
+                    case "8":
+                        await MyMenuOptions.GetListOfBusinessRules();
+                        break;
                 }
             }
             while (cki.Key != ConsoleKey.Escape);          

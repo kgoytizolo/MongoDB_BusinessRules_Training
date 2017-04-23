@@ -65,6 +65,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessRuleApp_DataAccess\BusinessRuleApp_DataAccess.csproj">
+      <Project>{bbe0fa46-443e-4a96-b105-7adf154b6111}</Project>
+      <Name>BusinessRuleApp_DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BusinessRuleApp_Models\BusinessRuleApp_Models.csproj">
       <Project>{bbfafc34-abff-470e-96ee-e34c5502aa0a}</Project>
       <Name>BusinessRuleApp_Models</Name>

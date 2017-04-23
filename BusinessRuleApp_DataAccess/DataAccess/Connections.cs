@@ -1,6 +1,5 @@
 ﻿using MongoDB.Driver;
 using System.Threading.Tasks;
-using BusinessRuleApp_Models.Models;
 
 namespace BusinessRuleApp_DataAccess
 {
@@ -23,7 +22,6 @@ namespace BusinessRuleApp_DataAccess
         {
             var connectionString = "mongodb://localhost:27017";
             _client = new MongoClient(connectionString);
-            var db = _client.GetDatabase("test");
         }
 
         public int MainDBSQLConnection() {

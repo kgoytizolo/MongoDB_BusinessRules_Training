@@ -1,7 +1,8 @@
-﻿using BusinessRuleApp_DataAccess;
-using BusinessRuleApp_Repository;
+﻿using BusinessRuleApp_Repository;
+using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
+using MongoDB.Driver;
 using System;
 using System.Threading.Tasks;
 
@@ -11,12 +12,10 @@ namespace BusinessRuleApp_Console
     {
         private ApplicationRepository _appRepository;
         private BusinessRulesRepository _brRepository;
-        private Connections _cnxMongoDB;
 
         public ProgramOptions() {
             _appRepository = new ApplicationRepository();
             _brRepository = new BusinessRulesRepository();
-            _cnxMongoDB = new Connections(1);                    
         }
 
         //Menu with required options to accomplish Business Rules exercises with MongoDB connectivity
@@ -30,15 +29,20 @@ namespace BusinessRuleApp_Console
             Console.WriteLine("4. Get Mapped Business Rules");
             Console.WriteLine("5. Insert a new Application (InsertOne)");
             Console.WriteLine("6. Insert new Business Rules (InsertMany)");
+            Console.WriteLine("7. Find Application documents from MongoDB using a cursor per batch found");
+            Console.WriteLine("8. Find Business Rules documents from MongoDB using a list (all documents)");
+            Console.WriteLine("9. Find Business Rules documents from MongoDB using foreach (all documents)");
             Console.ReadLine();
         }
 
+        //Option 1: 
         public void CheckAppDocumentStructure() {
             //Check results of Mongo DB Documents:
             Console.WriteLine(_appRepository.getApplications());        //Check all application Document structure <BSonDocument>                              
             Console.WriteLine("*******************************");
         }
 
+        //Option 2:
         public void CheckBusinessRulesDocumentStructure() {
             var brDocument = _brRepository.getBusinessRules();       //MongoDB document for business rules class
             Console.WriteLine(brDocument);                           //Check all business rules Document structure <BSonDocument>
@@ -46,6 +50,7 @@ namespace BusinessRuleApp_Console
             Console.WriteLine("*******************************");
         }
 
+        //Option 3:
         public void GetMappedApplications() {
             //POCO representation
             var application = _appRepository.GetApplicationsForMapping();
@@ -57,6 +62,7 @@ namespace BusinessRuleApp_Console
             Console.WriteLine("*******************************");
         }
 
+        //Option 4:
         public void GetMappedBusinessRules() {
             //POCO representation
             var businessRule = _brRepository.GetBusinessRulesForMapping();
@@ -68,20 +74,68 @@ namespace BusinessRuleApp_Console
             Console.WriteLine("*******************************");
         }
 
+        //Option 5:    
         public async Task InsertNewApplication() {
-            MongoDB.Driver.MongoClient client = _cnxMongoDB._client;
-            DataAccessTest daTest = new DataAccessTest(client);
-            await daTest.insertApplication(_appRepository.getApplications());
+            await _appRepository.InsertOneApplication(_appRepository.getApplications());
             Console.WriteLine("Document was inserted into Application collection");
             Console.WriteLine("*******************************");
         }
 
+        //Option 6:
         public async Task InsertNewBusinessRules() {
-            MongoDB.Driver.MongoClient client = _cnxMongoDB._client;
-            DataAccessTest daTest = new DataAccessTest(client);
-            await daTest.insertManyBusinessRules(_brRepository.getBusinessRules(), _brRepository.getBusinessRules());
+            await _brRepository.InsertManyBusinessRules(_brRepository.getBusinessRules(), _brRepository.getBusinessRules());
             Console.WriteLine("Documents were inserted into Business Rules collection (x2)");
             Console.WriteLine("*******************************");
+        }
+
+        //Option 7:
+        public async Task GetListOfApplications() {
+            var col = await _appRepository.GetListOfApplicationsFromDb();
+            Console.WriteLine();
+            Console.WriteLine("Get list of All Applications *******************************");
+            //We look for all documents from an specific collection (Application) using a cursor per each batch found
+            using (var cursor = await col.Find(new BsonDocument()).ToCursorAsync())
+            {
+                while (await cursor.MoveNextAsync())        //Moving per each batch
+                {
+                    foreach (var doc in cursor.Current)
+                    {
+                        Console.WriteLine(doc);
+                    }
+                }
+            }
+            Console.WriteLine("*******************************");
+            Console.WriteLine("");
+        }
+
+        //Option 8:
+        public async Task GetListOfBusinessRules() {
+            var col = await _brRepository.GetListOfBusinessRulesFromDb();
+            Console.WriteLine();
+            Console.WriteLine("Get list of All Business Rules *******************************");
+            //We look for all documents from an specific collection (Business Rules) using a quick way (List) without a cursor. 
+            //All documents will be delivered
+            var list = await col.Find(new BsonDocument()).ToListAsync();
+            foreach (var doc in list)
+            {
+                Console.WriteLine(doc);
+            }
+            Console.WriteLine("");
+            Console.WriteLine("*******************************");
+            Console.WriteLine("");
+        }
+
+        //Option 9:
+        public async Task GetListOfBusinessRules2() {
+            var col = await _brRepository.GetListOfBusinessRulesFromDb();
+            Console.WriteLine();
+            Console.WriteLine("Get list of All Business Rules *******************************");
+            //We look for all documents from an specific collection (Business Rules) using a quick way (List) without a cursor. 
+            //All documents will be delivered
+            await col.Find(new BsonDocument()).ForEachAsync(doc => Console.WriteLine(doc));
+            Console.WriteLine("");
+            Console.WriteLine("*******************************");
+            Console.WriteLine("");
         }
 
     }
