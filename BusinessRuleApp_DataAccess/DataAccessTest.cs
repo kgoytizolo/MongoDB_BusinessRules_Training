@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace BusinessRuleApp_DataAccess
 {
@@ -35,6 +36,25 @@ namespace BusinessRuleApp_DataAccess
         //Search for all business rules
         public async Task<IMongoCollection<BsonDocument>> getListOfBusinessRules() {
             return db.GetCollection<BsonDocument>("BusinessRule");
+        }
+
+        //Search for applications per filter
+        public async Task<List<BsonDocument>> getListOfApplicationsByFilter(int filter) {
+            IMongoCollection<BsonDocument> col = null;
+            BsonDocument searchFilter = null;
+            List<BsonDocument> list = null;
+            switch (filter) {
+                case 1:
+                    //Per App name
+                    searchFilter = new BsonDocument("ApplicationName","Application 2");
+                    col = db.GetCollection<BsonDocument>("Application");
+                    list = await col.Find(searchFilter).ToListAsync();
+                    break;
+                case 2:
+                    col = db.GetCollection<BsonDocument>("Application");
+                    break;
+            }
+            return list;
         }
 
     }

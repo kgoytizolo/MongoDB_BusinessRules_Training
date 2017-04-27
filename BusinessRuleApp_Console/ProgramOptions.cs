@@ -4,6 +4,7 @@ using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BusinessRuleApp_Console
@@ -32,6 +33,7 @@ namespace BusinessRuleApp_Console
             Console.WriteLine("7. Find Application documents from MongoDB using a cursor per batch found");
             Console.WriteLine("8. Find Business Rules documents from MongoDB using a list (all documents)");
             Console.WriteLine("9. Find Business Rules documents from MongoDB using foreach (all documents)");
+            Console.WriteLine("10. Find Application documents with filters - By Name (Application 2)");
             Console.ReadLine();
         }
 
@@ -133,6 +135,20 @@ namespace BusinessRuleApp_Console
             //We look for all documents from an specific collection (Business Rules) using a quick way (List) without a cursor. 
             //All documents will be delivered
             await col.Find(new BsonDocument()).ForEachAsync(doc => Console.WriteLine(doc));
+            Console.WriteLine("");
+            Console.WriteLine("*******************************");
+            Console.WriteLine("");
+        }
+
+        //Option 10:
+        public async Task GetListOfAppsByFilter(int filterType)
+        {
+            List<BsonDocument> listOfAppsByFilter = await _appRepository.SearchApplicationsByFilter(filterType);
+            //All documents will be delivered
+            foreach (var doc in listOfAppsByFilter)
+            {
+                Console.WriteLine(doc);
+            }
             Console.WriteLine("");
             Console.WriteLine("*******************************");
             Console.WriteLine("");

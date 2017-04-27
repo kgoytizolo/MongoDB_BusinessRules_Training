@@ -5,6 +5,7 @@ using MongoDB.Bson.Serialization;
 using System.Threading.Tasks;
 using BusinessRuleApp_DataAccess;
 using MongoDB.Driver;
+using System.Collections.Generic;
 
 namespace BusinessRuleApp_Repository
 {
@@ -21,11 +22,11 @@ namespace BusinessRuleApp_Repository
         {
             var docApp = new BsonDocument
             {
-                { "ApplicationName", "Application 1" }
+                { "ApplicationName", "Application 2" }
             };
 
             docApp.Add("ApplicationDescription", "This is an application blah blah");   //Adding a new row (key, value)
-            docApp["ApplicationUrlSource"] = "/root/GitRepository/Application1/";       //Adding another row ([key] = value)
+            docApp["ApplicationUrlSource"] = "/root/GitRepository/Application2/";       //Adding another row ([key] = value)
             docApp["CreationTime"] = System.DateTime.Now.ToString();                    //Adding another row ([key] = value)
             docApp["UserCreation"] = 1;                                                 //Adding another row ([key] = value)
 
@@ -62,10 +63,15 @@ namespace BusinessRuleApp_Repository
             await _daTest.insertApplication(getApplications());
         }
 
-        //Search and list all the Business Rules
+        //Search and list all Aplications
         public async Task<IMongoCollection<BsonDocument>> GetListOfApplicationsFromDb()
         {
             return await _daTest.getListOfApplications();
+        }
+
+        //Search and list Aplications (by filter)
+        public async Task<List<BsonDocument>> SearchApplicationsByFilter(int filter) {
+            return await _daTest.getListOfApplicationsByFilter(filter);
         }
 
     }
