@@ -33,3 +33,5 @@ C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Da
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_DataAccess\obj\Debug\BusinessRuleApp_DataAccess.csprojResolveAssemblyReference.cache
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_DataAccess\obj\Debug\BusinessRuleApp_DataAccess.dll
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_DataAccess\obj\Debug\BusinessRuleApp_DataAccess.pdb
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_ErrorHandler.dll
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_DataAccess\bin\Debug\BusinessRuleApp_ErrorHandler.pdb

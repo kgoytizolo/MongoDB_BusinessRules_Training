@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRuleApp_DataAccess"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRuleApp_Repository", "BusinessRuleApp_Repository\BusinessRuleApp_Repository.csproj", "{D69FCA1B-1583-4363-B648-4C1483F7E730}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRuleApp_ErrorHandler", "BusinessRuleApp_ErrorHandler\BusinessRuleApp_ErrorHandler.csproj", "{150EBC92-A81C-481A-902E-353094540891}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D69FCA1B-1583-4363-B648-4C1483F7E730}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D69FCA1B-1583-4363-B648-4C1483F7E730}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D69FCA1B-1583-4363-B648-4C1483F7E730}.Release|Any CPU.Build.0 = Release|Any CPU
+		{150EBC92-A81C-481A-902E-353094540891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{150EBC92-A81C-481A-902E-353094540891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{150EBC92-A81C-481A-902E-353094540891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{150EBC92-A81C-481A-902E-353094540891}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

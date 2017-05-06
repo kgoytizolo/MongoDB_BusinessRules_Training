@@ -59,6 +59,7 @@
     <Compile Include="ApplicationRepository.cs" />
     <Compile Include="BusinessRulesRepository.cs" />
     <Compile Include="Interfaces\IApplicationRepository.cs" />
+    <Compile Include="Interfaces\IBusinessRulesRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

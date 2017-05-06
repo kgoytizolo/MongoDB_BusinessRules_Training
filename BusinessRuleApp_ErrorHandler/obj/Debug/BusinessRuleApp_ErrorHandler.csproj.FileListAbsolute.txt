@@ -1,0 +1,5 @@
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_ErrorHandler\bin\Debug\BusinessRuleApp_ErrorHandler.dll
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_ErrorHandler\bin\Debug\BusinessRuleApp_ErrorHandler.pdb
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_ErrorHandler\obj\Debug\BusinessRuleApp_ErrorHandler.dll
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_ErrorHandler\obj\Debug\BusinessRuleApp_ErrorHandler.pdb
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_ErrorHandler\obj\Debug\BusinessRuleApp_ErrorHandler.csprojResolveAssemblyReference.cache

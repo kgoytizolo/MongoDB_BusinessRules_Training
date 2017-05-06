@@ -6,15 +6,16 @@ using MongoDB.Bson.Serialization.Conventions;
 using System.Threading.Tasks;
 using BusinessRuleApp_DataAccess;
 using MongoDB.Driver;
+using BusinessRuleApp_Repository.Interfaces;
 
 namespace BusinessRuleApp_Repository
 {
-    public class BusinessRulesRepository
+    public class BusinessRulesRepository : IBusinessRulesRepository
     {
         private DataAccessTest _daTest;
 
         public BusinessRulesRepository() {
-            _daTest = new DataAccessTest();
+            if(_daTest == null) _daTest = new DataAccessTest();
         }
 
         //Getting Business Rules From MongoDB directly (BSonDocument)  
@@ -28,7 +29,7 @@ namespace BusinessRuleApp_Repository
             docBr.Add("BrTypeId", 1);                                         //Adding a new row (key, value)
             docBr.Add("BrCategoryId", 1);                                     //Adding a new row (key, value)
             docBr.Add("BrUserCreation", 1);                                   //Adding a new row (key, value)
-            docBr["BrCreationTime"] = System.DateTime.Now.ToString();         //Adding another row ([key] = value)
+            docBr["BrCreationTime"] = System.DateTime.Now;                    //Adding another row ([key] = value)
 
             //Object's arrays:
             var nestedBrPerAppArray = new BsonArray();
@@ -70,7 +71,6 @@ namespace BusinessRuleApp_Repository
 
             BusinessRule br = new BusinessRule
             {
-                BrId = 1,
                 BrName = "Business Rule 1",
                 BrDescription = "This is a business rule blah blah",
                 BrTypeId = 1,
@@ -80,7 +80,7 @@ namespace BusinessRuleApp_Repository
                 BrDeprecated = true,
                 Aplications = new List<Application>(){
                     new Application {
-                        ApplicationId = 1,
+                        _Id = ObjectId.Empty,
                         ApplicationName = "Application 1",
                         ApplicationDescription = "This is an application blah blah",
                         ApplicationUrlSource = "/root/GitRepository/Application1/",
@@ -92,6 +92,10 @@ namespace BusinessRuleApp_Repository
             };
 
             return br;
+        }
+
+        public async Task<List<BusinessRule>> getListOfBusinessRulesByFilter(int filter, List<KeyValuePair<string, string>> filterKeyAndValue) {
+            return await _daTest.getListOfBusinessRulesByFilter(filter, filterKeyAndValue);
         }
 
     }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using BusinessRuleApp_ErrorHandler;
 
 namespace BusinessRuleApp_Console
 {
@@ -7,8 +9,13 @@ namespace BusinessRuleApp_Console
     {
         static void Main(string[] args)
         {
-            //Console.SetWindowSize(800, 600);
-            MainAsync(args).Wait();
+            try
+            {
+                MainAsync(args).Wait();
+            }
+            catch (Exception e) {
+                GenericError.PrintErrorMessages(e);
+            }            
             Console.WriteLine("Press Enter");
             Console.ReadLine();
         }
@@ -21,7 +28,7 @@ namespace BusinessRuleApp_Console
             do {
                 MyMenuOptions.DisplayMenu();
                 cki = Console.ReadKey(false);
-                switch (cki.KeyChar.ToString()) {
+                switch (cki.KeyChar.ToString().ToUpper()) {
                     case "1":
                         MyMenuOptions.CheckAppDocumentStructure();
                         break;
@@ -49,12 +56,50 @@ namespace BusinessRuleApp_Console
                     case "9":
                         await MyMenuOptions.GetListOfBusinessRules2();
                         break;
-                    case "10":
-                        await MyMenuOptions.GetListOfAppsByFilter(1);
+                    case "A":
+                        await MyMenuOptions.GetListOfAppsByFilter(1, SetFilters());
+                        break;
+                    case "B":
+                        await MyMenuOptions.GetListOfAppsByFilter(2, SetFilters());
+                        break;
+                    case "C":
+                        await MyMenuOptions.GetListOfAppsByFilter(3, SetFilters());
+                        break;
+                    case "D":
+                        await MyMenuOptions.GetListOfAppsByFilter(4, SetFilters());
+                        break;
+                    case "E":
+                        await MyMenuOptions.GetListOfAppsByFilter(5, SetFilters());
+                        break;
+                    case "F":
+                        await MyMenuOptions.GetListOfAppsByFilter(6, SetFilters());
+                        break;
+                    case "G":
+                        await MyMenuOptions.GetListOfAppsByFilter(7, SetFilters());
+                        break;
+                    case "H":
+                        await MyMenuOptions.GetListOfBusinessRulesByFilter(1, SetFilters());
+                        break;
+                    case "I":
+                        await MyMenuOptions.GetListOfBusinessRulesByFilter(2, SetFilters());
+                        break;
+                    case "J":
+                        await MyMenuOptions.GetListOfBusinessRulesByFilter(3, SetFilters());
                         break;
                 }
             }
             while (cki.Key != ConsoleKey.Escape);          
+        }
+
+        private static List<KeyValuePair<string, string>> SetFilters() {
+            return new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string,string>("ApplicationName","Application 2"),
+                new KeyValuePair<string,string>("BrCategoryId","2"),
+                new KeyValuePair<string,string>("BrName","Business Rule 1"),
+                new KeyValuePair<string,string>("BrName","Business Rule 2"),
+                new KeyValuePair<string,string>("BrCategoryId","1")
+            }; 
         }
 
     }

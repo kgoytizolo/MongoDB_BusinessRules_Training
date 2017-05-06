@@ -61,6 +61,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessRuleApp_ErrorHandler\BusinessRuleApp_ErrorHandler.csproj">
+      <Project>{150ebc92-a81c-481a-902e-353094540891}</Project>
+      <Name>BusinessRuleApp_ErrorHandler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BusinessRuleApp_Models\BusinessRuleApp_Models.csproj">
       <Project>{bbfafc34-abff-470e-96ee-e34c5502aa0a}</Project>
       <Name>BusinessRuleApp_Models</Name>

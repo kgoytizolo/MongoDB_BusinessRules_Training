@@ -1,4 +1,5 @@
-﻿using BusinessRuleApp_Repository;
+﻿using BusinessRuleApp_Models.Models;
+using BusinessRuleApp_Repository;
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
@@ -24,16 +25,25 @@ namespace BusinessRuleApp_Console
         {
             Console.WriteLine("Welcome to the Business Rules System!! ");
             Console.WriteLine("---------------------------------------");
-            Console.WriteLine("1. Check app Document structure");
-            Console.WriteLine("2. Check app Business rules structure (with arrays)");
-            Console.WriteLine("3. Get Mapped Applications");
-            Console.WriteLine("4. Get Mapped Business Rules");
-            Console.WriteLine("5. Insert a new Application (InsertOne)");
-            Console.WriteLine("6. Insert new Business Rules (InsertMany)");
-            Console.WriteLine("7. Find Application documents from MongoDB using a cursor per batch found");
-            Console.WriteLine("8. Find Business Rules documents from MongoDB using a list (all documents)");
-            Console.WriteLine("9. Find Business Rules documents from MongoDB using foreach (all documents)");
-            Console.WriteLine("10. Find Application documents with filters - By Name (Application 2)");
+            Console.WriteLine("1) Check app Document structure");
+            Console.WriteLine("2) Check app Business rules structure (with arrays)");
+            Console.WriteLine("3) Get Mapped Applications");
+            Console.WriteLine("4) Get Mapped Business Rules");
+            Console.WriteLine("5) Insert a new Application (InsertOne)");
+            Console.WriteLine("6) Insert new Business Rules (InsertMany)");
+            Console.WriteLine("7) Find Application documents from MongoDB using a cursor per batch found");
+            Console.WriteLine("8) Find Business Rules documents from MongoDB using a list (all documents)");
+            Console.WriteLine("9) Find Business Rules documents from MongoDB using foreach (all documents)");
+            Console.WriteLine("A) Find Application documents with filters - By Name using String Key/Value (Application 2)");
+            Console.WriteLine("B) Find Application documents with filters - By Name using JSON Key/Value (Application 2)");
+            Console.WriteLine("C) Find Business Rules documents with filters - Using Key/Value (Categories Less Than 2 / $lt)");
+            Console.WriteLine("D) Find Business Rules documents with filters - Using complex Key/Value conjunctions and filters with BsonArray");
+            Console.WriteLine("E) Find Business Rules documents with filters - Using Filter Definition Builder (Categories Less Than 2 / $lt)");
+            Console.WriteLine("F) Find Business Rules documents with filters - Using Filter Definition Builder for complex search");
+            Console.WriteLine("G) Find Business Rules documents with filters - Using Filter Definition Builder for complex search (2)");
+            Console.WriteLine("H) Find Business Rules documents with filters - Using <BusinessRule> class instead of JSON <BsonDocument> for complex search (2)");
+            Console.WriteLine("I) Find Business Rules documents with filters - Using <BusinessRule> class, builders and delegates for complex search (2)");
+            Console.WriteLine("J) Find Business Rules documents with filters - Using <BusinessRule> class and delegates only for complex search (2)");
             Console.ReadLine();
         }
 
@@ -85,7 +95,10 @@ namespace BusinessRuleApp_Console
 
         //Option 6:
         public async Task InsertNewBusinessRules() {
-            await _brRepository.InsertManyBusinessRules(_brRepository.getBusinessRules(), _brRepository.getBusinessRules());
+            var businessRule = _brRepository.GetBusinessRulesForMapping();
+            var bsonDocument1 = businessRule.ToBsonDocument();
+            var bsonDocument2 = businessRule.ToBsonDocument();
+            await _brRepository.InsertManyBusinessRules(bsonDocument1, bsonDocument2);
             Console.WriteLine("Documents were inserted into Business Rules collection (x2)");
             Console.WriteLine("*******************************");
         }
@@ -140,15 +153,52 @@ namespace BusinessRuleApp_Console
             Console.WriteLine("");
         }
 
-        //Option 10:
-        public async Task GetListOfAppsByFilter(int filterType)
+        //Option between A and G - Mongo DB filters search with Bson Document:
+        public async Task GetListOfAppsByFilter(int filterType, List<KeyValuePair<string, string>> filterKeyAndValue)
         {
-            List<BsonDocument> listOfAppsByFilter = await _appRepository.SearchApplicationsByFilter(filterType);
-            //All documents will be delivered
-            foreach (var doc in listOfAppsByFilter)
+            Console.Clear();
+            List<BsonDocument> listOfAppsByFilter = await _appRepository.SearchApplicationsByFilter(filterType, filterKeyAndValue);
+            //In case there are no results, print another message
+            if (listOfAppsByFilter.Count == 0 || listOfAppsByFilter == null)
             {
-                Console.WriteLine(doc);
+                GenericMessageDocumentsFound(0);
             }
+            else {
+                //All documents will be delivered
+                foreach (var doc in listOfAppsByFilter)
+                {
+                    Console.WriteLine(doc);
+                }
+                GenericMessageDocumentsFound(listOfAppsByFilter.Count);
+            }
+        }
+
+        //Option H and beyond - Mongo DB filters search with Business Rule class List:
+        public async Task GetListOfBusinessRulesByFilter(int filterType, List<KeyValuePair<string, string>> filterKeyAndValue)
+        {
+            Console.Clear();
+            List<BusinessRule> listOfBrsByFilter = await _brRepository.getListOfBusinessRulesByFilter(filterType, filterKeyAndValue);
+            //In case there are no results, print another message
+            if (listOfBrsByFilter.Count == 0 || listOfBrsByFilter == null)
+            {
+                GenericMessageDocumentsFound(0);
+            }
+            else
+            {
+                //All documents will be delivered
+                foreach (var br in listOfBrsByFilter)
+                {
+                    Console.WriteLine("Business Rule Name: " + br.BrName + " , Business Rules Id: " + br.Id);
+                }
+                GenericMessageDocumentsFound(listOfBrsByFilter.Count);
+            }
+        }
+
+        //General message after dynamic results
+        private void GenericMessageDocumentsFound(int totalReg) {
+            Console.WriteLine("");
+            if (totalReg == 0) Console.WriteLine("Sorry! No results found for this search!");
+            else Console.WriteLine("A total of " + totalReg + " document(s) has been found in the document search");
             Console.WriteLine("");
             Console.WriteLine("*******************************");
             Console.WriteLine("");

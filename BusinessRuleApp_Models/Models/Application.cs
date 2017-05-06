@@ -6,7 +6,8 @@ namespace BusinessRuleApp_Models.Models
 {
     public partial class Application
     {
-        public int ApplicationId { get; set; }
+        [BsonId]                                                        //Using BsonId to specify ObjectId MongoDB default Id type
+        public ObjectId _Id { get; set; }                               //Always include ObjectId to add MongoDB generated ID (when collection returns class instead of BsonDocument)
 
         [BsonElement("AppName")]                                        //Using attributes to apply POCO mapping (customization)
         public string ApplicationName { get; set; }

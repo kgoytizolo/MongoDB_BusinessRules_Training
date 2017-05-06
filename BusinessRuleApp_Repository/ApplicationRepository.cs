@@ -46,7 +46,6 @@ namespace BusinessRuleApp_Repository
 
             Application app = new Application
             {
-                ApplicationId = 1,
                 ApplicationName = "Application 1",
                 ApplicationDescription = "This is an application blah blah",
                 ApplicationUrlSource = "/root/GitRepository/Application1/",
@@ -70,8 +69,8 @@ namespace BusinessRuleApp_Repository
         }
 
         //Search and list Aplications (by filter)
-        public async Task<List<BsonDocument>> SearchApplicationsByFilter(int filter) {
-            return await _daTest.getListOfApplicationsByFilter(filter);
+        public async Task<List<BsonDocument>> SearchApplicationsByFilter(int filter, List<KeyValuePair<string, string>> filterKeyAndValue) {
+            return await _daTest.getListOfApplicationsByFilter(filter, filterKeyAndValue);
         }
 
     }

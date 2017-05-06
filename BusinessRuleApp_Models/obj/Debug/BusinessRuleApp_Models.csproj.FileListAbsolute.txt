@@ -9,8 +9,6 @@ C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_Models\obj\Debug\Busines
 C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.pdb
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\bin\Debug\BusinessRuleApp_Models.dll
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\bin\Debug\BusinessRuleApp_Models.pdb
-C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.dll
-C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.pdb
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\bin\Debug\MongoDB.Bson.dll
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\bin\Debug\MongoDB.Driver.Core.dll
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\bin\Debug\MongoDB.Driver.dll
@@ -18,3 +16,6 @@ C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Mo
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\bin\Debug\MongoDB.Bson.xml
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\bin\Debug\MongoDB.Driver.xml
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\bin\Debug\MongoDB.Driver.Core.xml
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.dll
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.pdb
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.csprojResolveAssemblyReference.cache

@@ -7,7 +7,7 @@ namespace BusinessRuleApp_Models.Models
 {
     public partial class BusinessRule
     {
-        public int BrId { get; set; }
+        public ObjectId Id { get; set; }                                //Always include ObjectId to include MongoDB generated ID (when collection returns class instead of BsonDocument)
         public string BrName { get; set; }                                      
         public string BrDescription { get; set; }
         public Nullable<byte> BrTypeId { get; set; }
