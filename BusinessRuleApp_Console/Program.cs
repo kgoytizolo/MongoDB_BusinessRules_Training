@@ -42,10 +42,10 @@ namespace BusinessRuleApp_Console
                         MyMenuOptions.GetMappedBusinessRules();
                         break;
                     case "5":
-                        await MyMenuOptions.InsertNewApplication();
+                        await MyMenuOptions.InsertNewApplication(cki.KeyChar.ToString().Trim().ToUpper());
                         break;
                     case "6":
-                        await MyMenuOptions.InsertNewBusinessRules();
+                        await MyMenuOptions.InsertNewBusinessRules(cki.KeyChar.ToString().Trim().ToUpper());
                         break;
                     case "7":
                         await MyMenuOptions.GetListOfApplications();
@@ -57,34 +57,67 @@ namespace BusinessRuleApp_Console
                         await MyMenuOptions.GetListOfBusinessRules2();
                         break;
                     case "A":
-                        await MyMenuOptions.GetListOfAppsByFilter(1, SetFilters());
+                        await MyMenuOptions.GetListOfAppsAndBusinessRulesByFilterBsonDocs(1, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
                         break;
                     case "B":
-                        await MyMenuOptions.GetListOfAppsByFilter(2, SetFilters());
+                        await MyMenuOptions.GetListOfAppsAndBusinessRulesByFilterBsonDocs(2, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
                         break;
                     case "C":
-                        await MyMenuOptions.GetListOfAppsByFilter(3, SetFilters());
+                        await MyMenuOptions.GetListOfAppsAndBusinessRulesByFilterBsonDocs(3, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
                         break;
                     case "D":
-                        await MyMenuOptions.GetListOfAppsByFilter(4, SetFilters());
+                        await MyMenuOptions.GetListOfAppsAndBusinessRulesByFilterBsonDocs(4, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
                         break;
                     case "E":
-                        await MyMenuOptions.GetListOfAppsByFilter(5, SetFilters());
+                        await MyMenuOptions.GetListOfAppsAndBusinessRulesByFilterBsonDocs(5, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
                         break;
                     case "F":
-                        await MyMenuOptions.GetListOfAppsByFilter(6, SetFilters());
+                        await MyMenuOptions.GetListOfAppsAndBusinessRulesByFilterBsonDocs(6, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
                         break;
                     case "G":
-                        await MyMenuOptions.GetListOfAppsByFilter(7, SetFilters());
+                        await MyMenuOptions.GetListOfAppsAndBusinessRulesByFilterBsonDocs(7, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
                         break;
                     case "H":
-                        await MyMenuOptions.GetListOfBusinessRulesByFilter(1, SetFilters());
+                        await MyMenuOptions.GetListOfBusinessRulesByFilter(1, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
                         break;
                     case "I":
-                        await MyMenuOptions.GetListOfBusinessRulesByFilter(2, SetFilters());
+                        await MyMenuOptions.GetListOfBusinessRulesByFilter(2, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
                         break;
                     case "J":
-                        await MyMenuOptions.GetListOfBusinessRulesByFilter(3, SetFilters());
+                        await MyMenuOptions.GetListOfBusinessRulesByFilter(3, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
+                        break;
+                    case "K":
+                        await MyMenuOptions.GetListOfBusinessRulesByFilter(4, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
+                        break;
+                    case "L":
+                        await MyMenuOptions.GetListOfBusinessRulesByFilter(5, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
+                        break;
+                    case "M":
+                        await MyMenuOptions.GetListOfBusinessRulesByFilter(6, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
+                        break;
+                    case "N":
+                        await MyMenuOptions.GetListOfBusinessRulesByFilter(7, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
+                        break;
+                    case "O":
+                        await MyMenuOptions.GetListOfBusinessRulesByFilter(8, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
+                        break;
+                    case "P":
+                        await MyMenuOptions.GetListOfAppsAndBusinessRulesByFilterBsonDocs(8, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
+                        break;
+                    case "Q":
+                        await MyMenuOptions.GetListOfAppsAndBusinessRulesByFilterBsonDocs(9, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
+                        break;
+                    case "R":
+                        await MyMenuOptions.GetListOfAppsAndBusinessRulesByFilterBsonDocs(10, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
+                        break;
+                    case "S":
+                        await MyMenuOptions.GetListOfBusinessRulesByFilter(9, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
+                        break;
+                    case "T":
+                        await MyMenuOptions.GetListOfBusinessRulesByFilter(10, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
+                        break;
+                    case "U":
+                        await MyMenuOptions.getListOfBusinessRulesByFilterString(1, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
                         break;
                 }
             }

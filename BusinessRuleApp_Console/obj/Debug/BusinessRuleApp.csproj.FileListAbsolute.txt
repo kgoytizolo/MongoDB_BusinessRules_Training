@@ -26,6 +26,7 @@ C:\KAREN_INFO\MANUALES\MONGODB\PROJECTS\BusinessRuleApp_Console\bin\Debug\Busine
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\BusinessRuleApp_Console.exe.config
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\BusinessRuleApp_Console.exe
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\BusinessRuleApp_Console.pdb
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\BusinessRuleApp_ErrorHandler.dll
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\BusinessRuleApp_Models.dll
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\BusinessRuleApp_Repository.dll
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\MongoDB.Bson.dll
@@ -33,6 +34,7 @@ C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Co
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\MongoDB.Driver.dll
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\BusinessRuleApp_DataAccess.dll
+C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\BusinessRuleApp_ErrorHandler.pdb
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\BusinessRuleApp_Models.pdb
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\BusinessRuleApp_Repository.pdb
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\MongoDB.Bson.xml
@@ -42,5 +44,3 @@ C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Co
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\obj\Debug\BusinessRuleApp.csprojResolveAssemblyReference.cache
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\obj\Debug\BusinessRuleApp_Console.exe
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\obj\Debug\BusinessRuleApp_Console.pdb
-C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\BusinessRuleApp_ErrorHandler.dll
-C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Console\bin\Debug\BusinessRuleApp_ErrorHandler.pdb

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BusinessRuleApp_DataAccess;
 using MongoDB.Driver;
 using BusinessRuleApp_Repository.Interfaces;
+using System;
 
 namespace BusinessRuleApp_Repository
 {
@@ -98,5 +99,9 @@ namespace BusinessRuleApp_Repository
             return await _daTest.getListOfBusinessRulesByFilter(filter, filterKeyAndValue);
         }
 
+        public async Task<List<string>> getListOfBusinessRulesByFilterStrings(int filter, List<KeyValuePair<string, string>> filterKeyAndValue)
+        {
+            return await _daTest.getListOfBusinessRulesByFilterStrings(filter, filterKeyAndValue);
+        }
     }
 }

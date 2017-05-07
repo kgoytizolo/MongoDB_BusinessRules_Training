@@ -43,7 +43,18 @@ namespace BusinessRuleApp_Console
             Console.WriteLine("G) Find Business Rules documents with filters - Using Filter Definition Builder for complex search (2)");
             Console.WriteLine("H) Find Business Rules documents with filters - Using <BusinessRule> class instead of JSON <BsonDocument> for complex search (2)");
             Console.WriteLine("I) Find Business Rules documents with filters - Using <BusinessRule> class, builders and delegates for complex search (2)");
-            Console.WriteLine("J) Find Business Rules documents with filters - Using <BusinessRule> class and delegates only for complex search (2)");
+            Console.WriteLine("J) Find Business Rules documents with filters - Using <BusinessRule> class and expression trees only for complex search (2)");
+            Console.WriteLine("K) Find Business Rules documents with filters - Using MongoDB Limits(1) to restrict retrieved data (Paging)");
+            Console.WriteLine("L) Find Business Rules documents with filters - Using MongoDB Limits(1) and Skip(1) to restrict retrieved data (Paging)");
+            Console.WriteLine("M) Find Business Rules documents with filters - Using MongoDB Sort(Descending CreationTime) + Limits(10) Business Rules");
+            Console.WriteLine("N) Find Business Rules documents with filters - Using MongoDB Sort(Desc Creation Time, Asc Name) + Limits(10) Business Rules");
+            Console.WriteLine("O) Find Business Rules documents with filters - Using MongoDB Sort(Desc Creation Time, Asc Name) + Limits(10) + expression trees");
+            Console.WriteLine("P) Display all Business Rules documents using MongoDB Projections <BsonDocument> - only Name and Creation Time");
+            Console.WriteLine("Q) Display all Business Rules documents using MongoDB Projections <BsonDocument> - only Name and Creation Time (2)");
+            Console.WriteLine("R) Display all Business Rules documents using MongoDB Builders<BsonDocument>.Projection - only Name and Creation Time");
+            Console.WriteLine("S) Display all Business Rules documents using MongoDB Builders<BusinessRule>.Projection - only Name and Creation Time");
+            Console.WriteLine("T) Display all Business Rules documents using MongoDB Builders<BusinessRule>.Projection (and expression trees)");
+            Console.WriteLine("U) Display all Business Rules documents using MongoDB Projection with expression trees only (String 'BrName' results)");
             Console.ReadLine();
         }
 
@@ -87,20 +98,20 @@ namespace BusinessRuleApp_Console
         }
 
         //Option 5:    
-        public async Task InsertNewApplication() {
+        public async Task InsertNewApplication(string selectedOption) {
             await _appRepository.InsertOneApplication(_appRepository.getApplications());
-            Console.WriteLine("Document was inserted into Application collection");
-            Console.WriteLine("*******************************");
+            Console.Clear();
+            GenericDocumentMessages(1, selectedOption);
         }
 
         //Option 6:
-        public async Task InsertNewBusinessRules() {
+        public async Task InsertNewBusinessRules(string selectedOption) {
             var businessRule = _brRepository.GetBusinessRulesForMapping();
             var bsonDocument1 = businessRule.ToBsonDocument();
             var bsonDocument2 = businessRule.ToBsonDocument();
             await _brRepository.InsertManyBusinessRules(bsonDocument1, bsonDocument2);
-            Console.WriteLine("Documents were inserted into Business Rules collection (x2)");
-            Console.WriteLine("*******************************");
+            Console.Clear();
+            GenericDocumentMessages(1, selectedOption);
         }
 
         //Option 7:
@@ -154,14 +165,14 @@ namespace BusinessRuleApp_Console
         }
 
         //Option between A and G - Mongo DB filters search with Bson Document:
-        public async Task GetListOfAppsByFilter(int filterType, List<KeyValuePair<string, string>> filterKeyAndValue)
+        public async Task GetListOfAppsAndBusinessRulesByFilterBsonDocs(int filterType, List<KeyValuePair<string, string>> filterKeyAndValue, string selectedOption)
         {
             Console.Clear();
             List<BsonDocument> listOfAppsByFilter = await _appRepository.SearchApplicationsByFilter(filterType, filterKeyAndValue);
             //In case there are no results, print another message
             if (listOfAppsByFilter.Count == 0 || listOfAppsByFilter == null)
             {
-                GenericMessageDocumentsFound(0);
+                GenericDocumentMessages(0, selectedOption);
             }
             else {
                 //All documents will be delivered
@@ -169,36 +180,85 @@ namespace BusinessRuleApp_Console
                 {
                     Console.WriteLine(doc);
                 }
-                GenericMessageDocumentsFound(listOfAppsByFilter.Count);
+                GenericDocumentMessages(listOfAppsByFilter.Count, selectedOption);
             }
         }
 
         //Option H and beyond - Mongo DB filters search with Business Rule class List:
-        public async Task GetListOfBusinessRulesByFilter(int filterType, List<KeyValuePair<string, string>> filterKeyAndValue)
+        public async Task GetListOfBusinessRulesByFilter(int filterType, List<KeyValuePair<string, string>> filterKeyAndValue, string selectedOption)
         {
             Console.Clear();
             List<BusinessRule> listOfBrsByFilter = await _brRepository.getListOfBusinessRulesByFilter(filterType, filterKeyAndValue);
             //In case there are no results, print another message
             if (listOfBrsByFilter.Count == 0 || listOfBrsByFilter == null)
             {
-                GenericMessageDocumentsFound(0);
+                GenericDocumentMessages(0, selectedOption);
             }
             else
             {
                 //All documents will be delivered
                 foreach (var br in listOfBrsByFilter)
                 {
-                    Console.WriteLine("Business Rule Name: " + br.BrName + " , Business Rules Id: " + br.Id);
+                    Console.WriteLine("Business Rule Name: " + br.BrName + ", Id: " + br.Id + ", Creation Date: " + br.BrCreationTime.ToString());
                 }
-                GenericMessageDocumentsFound(listOfBrsByFilter.Count);
+                GenericDocumentMessages(listOfBrsByFilter.Count, selectedOption);
+            }
+        }
+
+        //Option U - Mongo DB filters search with String class List
+        public async Task getListOfBusinessRulesByFilterString(int filter, List<KeyValuePair<string, string>> filterKeyAndValue, string selectedOption) {
+            Console.Clear();
+            List<string> listOfBrs = await _brRepository.getListOfBusinessRulesByFilterStrings(filter, filterKeyAndValue);
+            //In case there are no results, print another message
+            if (listOfBrs.Count == 0 || listOfBrs == null)
+            {
+                GenericDocumentMessages(0, selectedOption);
+            }
+            else
+            {
+                //All documents will be delivered
+                foreach (var br in listOfBrs)
+                {
+                    Console.WriteLine("Business Rule Name: " + br.ToString());
+                }
+                GenericDocumentMessages(listOfBrs.Count, selectedOption);
             }
         }
 
         //General message after dynamic results
-        private void GenericMessageDocumentsFound(int totalReg) {
+        private void GenericDocumentMessages(int totalReg, string selectedOption) {
             Console.WriteLine("");
-            if (totalReg == 0) Console.WriteLine("Sorry! No results found for this search!");
-            else Console.WriteLine("A total of " + totalReg + " document(s) has been found in the document search");
+            if (totalReg == 0)  Console.WriteLine("Sorry! No results found for this search!");
+            else {
+                switch (selectedOption) {
+                    case "5":
+                        Console.WriteLine("Document was inserted into Application collection (x1)");
+                        break;
+                    case "6":
+                        Console.WriteLine("Documents were inserted into Business Rules collection (x2)");
+                        break;
+                    default:
+                        Console.WriteLine("A total of " + totalReg + " document(s) have been found in the current search");
+                        break;
+                }                
+                switch (selectedOption)
+                {
+                    case "K":
+                    case "L":
+                        Console.WriteLine("Business Rules has been limited to the first result (1 row only)");
+                        break;
+                    case "M":
+                        Console.WriteLine("Business Rules has been limited to the first 10 results, sorted by Creation Time (Descending)");
+                        break;
+                    case "N":
+                        Console.WriteLine("Business Rules has been limited to the first 10 results, sorted by Creation Time (Descending) and Name (Ascending)");
+                        break;
+                    case "S":
+                    case "T":
+                        Console.WriteLine("Business Rules '_Id' appears with zeroes as a default value due to only 'brName' and 'brCreationTime' were returned from MongoDB database to Business Rule class. '_Id' is empty.");
+                        break;
+                }
+            } 
             Console.WriteLine("");
             Console.WriteLine("*******************************");
             Console.WriteLine("");

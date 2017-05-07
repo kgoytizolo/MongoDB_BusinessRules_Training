@@ -18,4 +18,3 @@ C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Mo
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\bin\Debug\MongoDB.Driver.Core.xml
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.dll
 C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.pdb
-C:\KAREN_INFO\MANUALES\MONGODB\MongoDB_BusinessRules_Training\BusinessRuleApp_Models\obj\Debug\BusinessRuleApp_Models.csprojResolveAssemblyReference.cache

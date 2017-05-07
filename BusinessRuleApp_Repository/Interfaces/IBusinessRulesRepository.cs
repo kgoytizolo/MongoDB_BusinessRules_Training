@@ -13,5 +13,6 @@ namespace BusinessRuleApp_Repository.Interfaces
         Task<IMongoCollection<BsonDocument>> GetListOfBusinessRulesFromDb();
         BusinessRule GetBusinessRulesForMapping();
         Task<List<BusinessRule>> getListOfBusinessRulesByFilter(int filter, List<KeyValuePair<string, string>> filterKeyAndValue);
+        Task<List<string>> getListOfBusinessRulesByFilterStrings(int filter, List<KeyValuePair<string, string>> filterKeyAndValue);
     }
 }
