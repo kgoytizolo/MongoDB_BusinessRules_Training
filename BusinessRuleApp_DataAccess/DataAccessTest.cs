@@ -19,6 +19,8 @@ namespace BusinessRuleApp_DataAccess
             db = _cnxMongoDB._client.GetDatabase("test");
         }
 
+        //************************** MongoDB CRUD operations ******************************** 
+        //Create data (insert)
         //Insert data (only one document)
         public async Task insertApplication(BsonDocument docApp)
         {
@@ -44,6 +46,7 @@ namespace BusinessRuleApp_DataAccess
             }            
         }
 
+        //READ:
         //Search for all aplications
         public async Task<IMongoCollection<BsonDocument>> getListOfApplications()
         {
@@ -251,6 +254,70 @@ namespace BusinessRuleApp_DataAccess
                 GenericError.PrintErrorMessages(e);
             }
             return list;
+        }
+
+        //Edit data (Replace or Update)
+        //MongoDB replacement (A type of update. First element is for search, the other ones will be replaced)
+        public async Task<int> replaceApplicationValues(int filter)
+        {
+            var col = db.GetCollection<Application>("Application");
+            var totUpds = 0;
+            try
+            {
+                switch (filter)
+                {
+                    case 1:
+                        //Standard: collection.FindOneAndUpdateAsync(filter, update)    (*) basic and required
+                        //Addition: collection.FindOneAndUpdateAsync(filter, update, {
+                        // projection: <document>, sort: <document>, maxTimeMS: <number>, upsert: <boolean>, returnNewDocument: <boolean>
+                        // })
+                        Application result = await col.FindOneAndUpdateAsync(
+                            Builders<Application>.Filter.Eq(x => x.UserCreation, 1),
+                            Builders<Application>.Update.Set(x => x.ApplicationName, "Application XYZ-2"));
+                        totUpds = (result == null)? 0 : 1;
+                        break;
+                    case 2:
+                        //var result3 = await col.ReplaceOneAsync(
+                        //    Builders<BsonDocument>.Filter.Eq("ApplicationName", "Application 2"),
+                        //    new BsonDocument("ApplicationName", "Application 3"),
+                        //    new UpdateOptions { IsUpsert = true });
+                        //ReplaceOneResult result = null;
+                        //return int.Parse(result.ModifiedCount.ToString());
+                        totUpds = 1;
+                        break;
+                }
+                return totUpds;
+            }
+            catch (Exception e)
+            {
+                GenericError.PrintErrorMessages(e);
+                return 0;
+            }
+        }
+
+        //MongoDB replacement (updates)
+        public async Task<int> updateApplicationValues(int filter)
+        {
+            var col = db.GetCollection<BsonDocument>("Aplication");
+            ReplaceOneResult result = null;
+            try
+            {
+                switch (filter)
+                {
+                    case 1:
+                        result = await col.ReplaceOneAsync(
+                            Builders<BsonDocument>.Filter.Eq("AppName", "Application 2"),
+                            new BsonDocument("AppName", "Application 2")
+                                .Add("UserCreation", 2));
+                        break;
+                }
+                return int.Parse(result.ModifiedCount.ToString());
+            }
+            catch (Exception e)
+            {
+                GenericError.PrintErrorMessages(e);
+                return 0;
+            }
         }
 
     }

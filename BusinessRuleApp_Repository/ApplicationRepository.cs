@@ -17,17 +17,32 @@ namespace BusinessRuleApp_Repository
             _daTest = new DataAccessTest();
         }
 
+        //************************** MongoDB CRUD operations ******************************** 
+        //Create data (insert)
+        //Insert aplication sample (InsertOne)
+        public async Task InsertOneApplication(BsonDocument appSample1)
+        {
+            await _daTest.insertApplication(getApplications());
+        }
+
+        //Edit data (Replace or Update)
+        public async Task<int> replaceApplicationValues(int filter)
+        {
+            return await _daTest.replaceApplicationValues(filter);
+        }
+
+        //READ:
         //Getting Applications From MongoDB directly (BSonDocument) 
         public BsonDocument getApplications()
         {
             var docApp = new BsonDocument
             {
-                { "ApplicationName", "Application 2" }
+                { "ApplicationName", "Application 1" }
             };
 
             docApp.Add("ApplicationDescription", "This is an application blah blah");   //Adding a new row (key, value)
-            docApp["ApplicationUrlSource"] = "/root/GitRepository/Application2/";       //Adding another row ([key] = value)
-            docApp["CreationTime"] = System.DateTime.Now.ToString();                    //Adding another row ([key] = value)
+            docApp["ApplicationUrlSource"] = "/root/GitRepository/Application1/";       //Adding another row ([key] = value)
+            docApp["CreationTime"] = System.DateTime.Now;                               //Adding another row ([key] = value)
             docApp["UserCreation"] = 1;                                                 //Adding another row ([key] = value)
 
             return docApp;
@@ -54,12 +69,6 @@ namespace BusinessRuleApp_Repository
             };
 
             return app;
-        }
-
-        //Insert aplication sample (InsertOne)
-        public async Task InsertOneApplication(BsonDocument appSample1)
-        {
-            await _daTest.insertApplication(getApplications());
         }
 
         //Search and list all Aplications

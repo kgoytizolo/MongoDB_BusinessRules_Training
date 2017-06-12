@@ -13,5 +13,6 @@ namespace BusinessRuleApp_Repository.Interfaces
         Task InsertOneApplication(BsonDocument appSample1);
         Task<IMongoCollection<BsonDocument>> GetListOfApplicationsFromDb();
         Task<List<BsonDocument>> SearchApplicationsByFilter(int filter, List<KeyValuePair<string, string>> filterKeyAndValue);
+        Task<int> replaceApplicationValues(int filter);
     }
 }

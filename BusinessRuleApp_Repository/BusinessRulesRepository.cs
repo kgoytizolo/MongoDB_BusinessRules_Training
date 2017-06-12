@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using BusinessRuleApp_DataAccess;
 using MongoDB.Driver;
 using BusinessRuleApp_Repository.Interfaces;
-using System;
 
 namespace BusinessRuleApp_Repository
 {

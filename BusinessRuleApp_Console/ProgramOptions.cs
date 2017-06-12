@@ -55,6 +55,7 @@ namespace BusinessRuleApp_Console
             Console.WriteLine("S) Display all Business Rules documents using MongoDB Builders<BusinessRule>.Projection - only Name and Creation Time");
             Console.WriteLine("T) Display all Business Rules documents using MongoDB Builders<BusinessRule>.Projection (and expression trees)");
             Console.WriteLine("U) Display all Business Rules documents using MongoDB Projection with expression trees only (String 'BrName' results)");
+            Console.WriteLine("V) Replace Application element (x1) using MongoDB FindOneAndUpdateAsync() - Changing App Name to 'Application XYZ-2'");
             Console.ReadLine();
         }
 
@@ -225,6 +226,15 @@ namespace BusinessRuleApp_Console
             }
         }
 
+        //Option V - Mongo DB updates :    
+        public async Task ReplaceExistingApplication(string selectedOption, int filter)
+        {
+            int regReplaced = 0;
+            regReplaced = await _appRepository.replaceApplicationValues(filter);
+            Console.Clear();
+            GenericDocumentMessages(regReplaced, selectedOption);
+        }
+
         //General message after dynamic results
         private void GenericDocumentMessages(int totalReg, string selectedOption) {
             Console.WriteLine("");
@@ -237,6 +247,9 @@ namespace BusinessRuleApp_Console
                     case "6":
                         Console.WriteLine("Documents were inserted into Business Rules collection (x2)");
                         break;
+                    case "V":
+                        Console.WriteLine("One Application document was updated with ApplicationName : Application XYZ-2 when user Creation code is 1");
+                        break;    
                     default:
                         Console.WriteLine("A total of " + totalReg + " document(s) have been found in the current search");
                         break;

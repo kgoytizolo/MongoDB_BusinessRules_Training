@@ -4,6 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace BusinessRuleApp_Models.Models
 {
+    [BsonIgnoreExtraElements]
     public partial class Application
     {
         [BsonId]                                                        //Using BsonId to specify ObjectId MongoDB default Id type

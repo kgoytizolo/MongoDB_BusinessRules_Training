@@ -119,6 +119,9 @@ namespace BusinessRuleApp_Console
                     case "U":
                         await MyMenuOptions.getListOfBusinessRulesByFilterString(1, SetFilters(), cki.KeyChar.ToString().Trim().ToUpper());
                         break;
+                    case "V":
+                        await MyMenuOptions.ReplaceExistingApplication(cki.KeyChar.ToString().Trim().ToUpper(),1);
+                        break;
                 }
             }
             while (cki.Key != ConsoleKey.Escape);          
