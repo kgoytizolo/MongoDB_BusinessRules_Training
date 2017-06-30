@@ -122,6 +122,12 @@ namespace BusinessRuleApp_Console
                     case "V":
                         await MyMenuOptions.ReplaceExistingApplication(cki.KeyChar.ToString().Trim().ToUpper(),1);
                         break;
+                    case "W":
+                        await MyMenuOptions.ReplaceExistingApplication(cki.KeyChar.ToString().Trim().ToUpper(), 2);
+                        break;
+                    case "X":
+                        await MyMenuOptions.DeleteApplicationElements(cki.KeyChar.ToString().Trim().ToUpper(), 1);
+                        break;
                 }
             }
             while (cki.Key != ConsoleKey.Escape);          

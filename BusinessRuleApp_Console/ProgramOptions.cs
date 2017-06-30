@@ -56,6 +56,8 @@ namespace BusinessRuleApp_Console
             Console.WriteLine("T) Display all Business Rules documents using MongoDB Builders<BusinessRule>.Projection (and expression trees)");
             Console.WriteLine("U) Display all Business Rules documents using MongoDB Projection with expression trees only (String 'BrName' results)");
             Console.WriteLine("V) Replace Application element (x1) using MongoDB FindOneAndUpdateAsync() - Changing App Name to 'Application XYZ-2'");
+            Console.WriteLine("W) Replace Application element (x1) using MongoDB FindOneAndUpdateAsync() - Changing User Creation from 1 to 5");
+            Console.WriteLine("X) Delete Application element (x1) using MongoDB FindOneAndDeleteAsync() - when User Creation is 5");
             Console.ReadLine();
         }
 
@@ -226,11 +228,20 @@ namespace BusinessRuleApp_Console
             }
         }
 
-        //Option V - Mongo DB updates :    
+        //Option V and W - Mongo DB updates:    
         public async Task ReplaceExistingApplication(string selectedOption, int filter)
         {
             int regReplaced = 0;
             regReplaced = await _appRepository.replaceApplicationValues(filter);
+            Console.Clear();
+            GenericDocumentMessages(regReplaced, selectedOption);
+        }
+
+        //Option X - Mongo DB Deletes:
+        public async Task DeleteApplicationElements(string selectedOption, int filter)
+        {
+            int regReplaced = 0;
+            regReplaced = await _appRepository.deleteApplicationValues(filter);
             Console.Clear();
             GenericDocumentMessages(regReplaced, selectedOption);
         }
@@ -249,7 +260,13 @@ namespace BusinessRuleApp_Console
                         break;
                     case "V":
                         Console.WriteLine("One Application document was updated with ApplicationName : Application XYZ-2 when user Creation code is 1");
-                        break;    
+                        break;
+                    case "W":
+                        Console.WriteLine("One Application document was updated with User Creation = 5 when User Creation = 1 (the first one in the search)");
+                        break;
+                    case "X":
+                        Console.WriteLine("One Application document has been deleted with User Creation = 5 (the first one in the search)");
+                        break;
                     default:
                         Console.WriteLine("A total of " + totalReg + " document(s) have been found in the current search");
                         break;

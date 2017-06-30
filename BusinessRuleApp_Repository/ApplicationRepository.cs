@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BusinessRuleApp_DataAccess;
 using MongoDB.Driver;
 using System.Collections.Generic;
+using System;
 
 namespace BusinessRuleApp_Repository
 {
@@ -18,17 +19,13 @@ namespace BusinessRuleApp_Repository
         }
 
         //************************** MongoDB CRUD operations ******************************** 
+        
+        //CREATE:   
         //Create data (insert)
         //Insert aplication sample (InsertOne)
         public async Task InsertOneApplication(BsonDocument appSample1)
         {
             await _daTest.insertApplication(getApplications());
-        }
-
-        //Edit data (Replace or Update)
-        public async Task<int> replaceApplicationValues(int filter)
-        {
-            return await _daTest.replaceApplicationValues(filter);
         }
 
         //READ:
@@ -80,6 +77,20 @@ namespace BusinessRuleApp_Repository
         //Search and list Aplications (by filter)
         public async Task<List<BsonDocument>> SearchApplicationsByFilter(int filter, List<KeyValuePair<string, string>> filterKeyAndValue) {
             return await _daTest.getListOfApplicationsByFilter(filter, filterKeyAndValue);
+        }
+
+        //UPDATE
+        //Edit data (Replace or Update)
+        public async Task<int> replaceApplicationValues(int filter)
+        {
+            return await _daTest.replaceUpdateApplicationValues(filter);
+        }
+
+        //DELETE
+        //Delete Application data
+        public async Task<int> deleteApplicationValues(int filter)
+        {
+            return await _daTest.deleteApplicationValues(filter);
         }
 
     }

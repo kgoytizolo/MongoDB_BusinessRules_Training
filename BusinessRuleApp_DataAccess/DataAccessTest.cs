@@ -258,7 +258,7 @@ namespace BusinessRuleApp_DataAccess
 
         //Edit data (Replace or Update)
         //MongoDB replacement (A type of update. First element is for search, the other ones will be replaced)
-        public async Task<int> replaceApplicationValues(int filter)
+        public async Task<int> replaceUpdateApplicationValues(int filter)
         {
             var col = db.GetCollection<Application>("Application");
             var totUpds = 0;
@@ -267,23 +267,34 @@ namespace BusinessRuleApp_DataAccess
                 switch (filter)
                 {
                     case 1:
+                        //First operation: Find and modify (FIND ONE AND UPDATE)
                         //Standard: collection.FindOneAndUpdateAsync(filter, update)    (*) basic and required
                         //Addition: collection.FindOneAndUpdateAsync(filter, update, {
                         // projection: <document>, sort: <document>, maxTimeMS: <number>, upsert: <boolean>, returnNewDocument: <boolean>
                         // })
+                        //It becomes an upsert in case doesn't find the column to update for required condition
                         Application result = await col.FindOneAndUpdateAsync(
                             Builders<Application>.Filter.Eq(x => x.UserCreation, 1),
                             Builders<Application>.Update.Set(x => x.ApplicationName, "Application XYZ-2"));
                         totUpds = (result == null)? 0 : 1;
                         break;
                     case 2:
-                        //var result3 = await col.ReplaceOneAsync(
-                        //    Builders<BsonDocument>.Filter.Eq("ApplicationName", "Application 2"),
-                        //    new BsonDocument("ApplicationName", "Application 3"),
-                        //    new UpdateOptions { IsUpsert = true });
-                        //ReplaceOneResult result = null;
-                        //return int.Parse(result.ModifiedCount.ToString());
-                        totUpds = 1;
+                        //First operation: Find and modify (FIND ONE AND UPDATE)
+                        //Second usage: FindOneAndUpdateAsync(filter, update, projection = using returnDocument with sort)
+                        //ReturnDocument projection returns all the document updated. 
+                        //If is not defined, ReturnDocument is assumed as false (like case 1)
+                        //Note: Seems like filter and builder considers Bson Element column name instead of class name
+                        //It becomes an upsert in case doesn't find the column to update for required condition
+                        Application result2 = await col.FindOneAndUpdateAsync<Application>(
+                            x => x.UserCreation == 1,
+                            Builders<Application>.Update.Set(x => x.UserCreation, 5),       //Filter: What conditions will be affected by the update
+                            new FindOneAndUpdateOptions<Application, Application>           //Projection: Options
+                            {
+                                ReturnDocument = ReturnDocument.After,                      //Show document with last updates
+                                Sort = Builders<Application>.Sort.Descending(x => x._Id)    //Show sorting in case of several rows
+                            }
+                        );
+                        totUpds = (result2 == null) ? 0 : 1;
                         break;
                 }
                 return totUpds;
@@ -295,23 +306,27 @@ namespace BusinessRuleApp_DataAccess
             }
         }
 
-        //MongoDB replacement (updates)
-        public async Task<int> updateApplicationValues(int filter)
+        //Delete Data
+        //MongoDB FIND ONE AND DELETE
+        public async Task<int> deleteApplicationValues(int filter)
         {
-            var col = db.GetCollection<BsonDocument>("Aplication");
-            ReplaceOneResult result = null;
+            var col = db.GetCollection<Application>("Aplication");
+            var totDel = 0;
             try
             {
                 switch (filter)
                 {
                     case 1:
-                        result = await col.ReplaceOneAsync(
-                            Builders<BsonDocument>.Filter.Eq("AppName", "Application 2"),
-                            new BsonDocument("AppName", "Application 2")
-                                .Add("UserCreation", 2));
+                        Application result = await col.FindOneAndDeleteAsync<Application>(
+                            Builders<Application>.Filter.Eq(x => x.UserCreation, 5),
+                            new FindOneAndDeleteOptions<Application, Application>           //Projection: Options
+                            {
+                                Sort = Builders<Application>.Sort.Descending(x => x.UserCreation)    //Show sorting in case of several rows
+                            });
+                        totDel = (result == null) ? 0 : 1;
                         break;
                 }
-                return int.Parse(result.ModifiedCount.ToString());
+                return totDel;
             }
             catch (Exception e)
             {
